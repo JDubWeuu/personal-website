@@ -1,18 +1,29 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import profileImage from "../../public/assets/cover_photo.jpeg"; // Adjust the path as necessary
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
-import { Github, Mail, Linkedin, Sparkles } from 'lucide-react'
+import { Github, Mail, Linkedin, Sparkles } from "lucide-react";
 import Skills from "./_components/Skills";
+import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
+import { ArrowButton } from "./_components/ui/Arrow";
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (buttonClicked) {
+      router.push("/learn");
+    }
+  }, [buttonClicked, router])
 
   return (
     <div className="">
@@ -69,6 +80,17 @@ export default function Home() {
                   strokeWidth={1.5}
                 />
               </Link>
+            </div>
+            <div>
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center"
+                duration={0.5}
+                onClick={() => setButtonClicked(!buttonClicked)}
+              >
+                <ArrowButton>Learn More</ArrowButton>
+              </HoverBorderGradient>
             </div>
           </div>
 
