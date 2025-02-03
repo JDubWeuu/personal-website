@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import profileImage from "../../public/assets/cover_photo.jpeg"; // Adjust the path as necessary
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
-import { Github, Mail, Linkedin, Sparkles } from "lucide-react";
+import { Github, Mail, Linkedin } from "lucide-react";
 import Skills from "./_components/Skills";
 import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
 import { ArrowButton } from "./_components/ui/Arrow";
