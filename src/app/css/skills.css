@@ -1,0 +1,27 @@
+.skills {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.skill-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* .skill-card:hover {
+    transform: translateY(-5px);
+} */
+
+.skill-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+    font: 550 1rem var(--font-inter-sans);
+    color: darkslategrey;
+}
