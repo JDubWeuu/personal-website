@@ -34,10 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interSans.variable} antialiased`}>
-        <div>
-          <Navbar />
-        </div>
+      <body className={`${interSans.variable} antialiased min-h-screen`}>
+        <Navbar />
         {children}
       </body>
     </html>
