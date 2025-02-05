@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-type Props = {};
+// type Props = {};
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer className="border-t py-6 md:px-8 md:py-0 w-full">
       <div className="container mx-auto">
