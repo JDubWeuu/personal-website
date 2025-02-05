@@ -1,14 +1,14 @@
 "use client";
 import React from 'react'
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 // type Props = {
 
 // }
 
 const Navbar = () => {
-    const pathname = usePathname();
+    // const pathname = usePathname();
     const navElements: [string, string][] = [["About Me", "/about"], ["Learn", "/learn"], ["Projects", "/projects"], ["Experience", "/experience"], ["Contact", "/contact"]];
   return (
     <nav className="w-full sticky top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-white/50 dark:bg-black/50 border-b border-slate-200/20 h-16">

@@ -2,14 +2,14 @@
 import React, { useState } from 'react'
 import Searchbar from '../_components/Searchbar'
 
-type Props = {}
+// type Props = {}
 
 type Message = {
     role: string,
     content: string
 }
 
-const Learn = (props: Props) => {
+const Learn = () => {
     const [] = useState<Message[]>([]);
   return (
     <>
