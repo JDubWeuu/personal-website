@@ -9,6 +9,7 @@ import { Github, Mail, Linkedin } from "lucide-react";
 import Skills from "./_components/Skills";
 import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
 import { ArrowButton } from "./_components/ui/Arrow";
+import Footer from "./_components/Footer";
 
 export default function Home() {
   const router = useRouter();
@@ -108,7 +109,7 @@ export default function Home() {
         </div>
       </main>
       <Skills />
-      <footer className="w-full py-4 flex gap-6 flex-wrap items-center justify-center"></footer>
+      <Footer />
     </div>
   );
 }
