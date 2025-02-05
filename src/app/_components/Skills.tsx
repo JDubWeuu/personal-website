@@ -1,6 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import "../css/skills.css"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type Icons = {
     languages: string[],
@@ -10,7 +16,7 @@ type Icons = {
 
 const Skills = () => {
     const iconList: Icons = {
-        languages: ["python", "c++", "c", "java", "html", "css", "javascript", "typescript", "sql", "assembly"],
+        languages: ["python.png", "cpp.png", "c.svg", "java.png", "html.png", "css.png", "javascript.png", "typescript.png", "sql.png", "assembly.png"],
         frameworks: [],
         developerTools: []
 
@@ -21,16 +27,25 @@ const Skills = () => {
       <div className="flex justify-evenly skills">
         <div className="skill-card">
           <h3 className="">Languages</h3>
-          <div className='flex flex-wrap items-center gap-x-3'>
-            {iconList.languages.map((language, ind) => {
+          <div className='flex flex-wrap items-center gap-x-3.5 gap-y-3.5'>
+            {iconList.languages.map((languageLink, ind) => {
                 return (
-                  <Image
-                    key={ind}
-                    src={`/assets/${language}.png`}
-                    alt={`${language} icon`}
-                    width={40}
-                    height={40}
-                  />
+                  <TooltipProvider key={ind}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Image
+                          key={ind}
+                          src={`/assets/${languageLink}`}
+                          alt={`${languageLink.split(".")[0]}`}
+                          width={50}
+                          height={50}
+                        />
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{languageLink.split(".")[0]}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 );
             })}
           </div>

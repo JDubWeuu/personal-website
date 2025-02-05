@@ -9,6 +9,7 @@ import { Github, Mail, Linkedin } from "lucide-react";
 import Skills from "./_components/Skills";
 import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
 import { ArrowButton } from "./_components/ui/Arrow";
+import Footer from "./_components/Footer";
 
 export default function Home() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <main className="flex h-dvh flex-col items-center mt-20">
+      <main className="flex min-h-screen flex-col items-center mt-20">
         {/* Use a container that spans the width and separates the two sections */}
         <div className="w-full max-w-6xl mx-auto flex items-center justify-between px-4">
           {/* Left: Text content */}
@@ -102,13 +103,13 @@ export default function Home() {
               alt="Profile Photo"
               width={300}
               height={300}
-              className="rounded-full shadow-md relative z-10 object-cover"
+              className={`rounded-full relative z-10 object-cover fade-in ${isMounted && "active"}`}
             />
           </div>
         </div>
       </main>
       <Skills />
-      <footer className="absolute bottom-0 w-full py-4 flex gap-6 flex-wrap items-center justify-center"></footer>
+      <Footer />
     </div>
   );
 }
