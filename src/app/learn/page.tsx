@@ -1,16 +1,17 @@
-"use client"
-import React, { useState } from 'react'
-import Searchbar from '../_components/Searchbar'
+"use client";
+
+import React, { useState } from "react";
+import Searchbar from "../_components/Searchbar";
 
 // type Props = {}
 
 type Message = {
-    role: string,
-    content: string
-}
+  role: string;
+  content: string;
+};
 
 const Learn = () => {
-    const [] = useState<Message[]>([]);
+  const [] = useState<Message[]>([]);
   return (
     <>
       <header className="my-3 ml-[100px] w-full flex flex-col">
@@ -22,14 +23,14 @@ const Learn = () => {
           </p>
         </div>
       </header>
-      <div className='flex justify-center'>
+      <div className="flex justify-center">
         <div>
-            <Searchbar />
+          <Searchbar />
         </div>
         {/* <section className="border border-solid rounded-lg h-[500px] w-full ml-[100px] mr-[200px] shadow-md"></section> */}
       </div>
     </>
   );
-}
+};
 
-export default Learn
+export default Learn;
