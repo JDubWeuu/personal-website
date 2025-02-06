@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
@@ -17,15 +17,17 @@ const AIResponsePage = () => {
         return;
       }
       setQuestion(query);
-    }, [searchParams, router]); //run when router and searchParams mount
+    }, [searchParams, router]); //run when both router and searchParams mount/change
 
-    if (!question) {
-      return <div>Loading...</div>;
-    }
+    // if (!question) {
+    //   return <div>Loading...</div>;
+    // }
 
     return (
-      <div>{question}</div>
-    )
+      <Suspense fallback={<div>Loading...</div>}>
+        <div>{question}</div>
+      </Suspense>
+    );
 }
 
 export default AIResponsePage
