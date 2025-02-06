@@ -1,5 +1,3 @@
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 import AIResponsePage from "./search";
 
