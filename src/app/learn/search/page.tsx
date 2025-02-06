@@ -8,17 +8,24 @@ const AIResponsePage = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [question, setQuestion] = useState("");
+    
+
     useEffect(() => {
-      if (!searchParams.get("q")) {
+      const query = searchParams.get("q");
+      if (!query) {
         router.push("/learn");
+        return;
       }
-      setQuestion(searchParams.get("q") as string);
-    }, [])
+      setQuestion(query);
+    }, [searchParams, router]); //run when router and searchParams mount
 
+    if (!question) {
+      return <div>Loading...</div>;
+    }
 
-  return (
-    <div>{question}</div>
-  )
+    return (
+      <div>{question}</div>
+    )
 }
 
 export default AIResponsePage
