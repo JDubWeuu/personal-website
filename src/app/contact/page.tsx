@@ -75,20 +75,18 @@ const Contact = () => {
                           <Input placeholder="Input your first and last name" {...field} />
                         </FormControl>
                         {form?.formState?.errors?.name && (
-                            <>
-                                <FormMessage>
-                                    {form.formState.errors.name.message}
-                                </FormMessage>
-                            </>
+                          <>
+                            <FormMessage>
+                              {form.formState.errors.name.message}
+                            </FormMessage>
+                          </>
                         )}
                       </FormItem>
                     </>
                   );
                 }}
-              ></FormField>
-              <Button type="submit">
-                Send
-              </Button>
+              />
+              <Button type="submit">Send</Button>
             </form>
           </Form>
         </CardContent>
