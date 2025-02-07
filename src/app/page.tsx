@@ -2,14 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import profileImage from "../../public/assets/cover_photo.jpeg"; // Adjust the path as necessary
+import profileImage from "../../public/assets/cover_photo.jpeg"; 
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
 import { Github, Mail, Linkedin } from "lucide-react";
-import Skills from "./_components/Skills";
 import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
 import { ArrowButton } from "./_components/ui/Arrow";
-import Footer from "./_components/Footer";
+import { links } from "@/config/site";
 
 export default function Home() {
   const router = useRouter();
@@ -22,12 +21,12 @@ export default function Home() {
 
   useEffect(() => {
     if (buttonClicked) {
-      router.push("/learn");
+      router.push("/about");
     }
   }, [buttonClicked, router])
 
   return (
-    <div className="">
+    <>
       <main className="flex min-h-screen flex-col items-center mt-20">
         {/* Use a container that spans the width and separates the two sections */}
         <div className="w-full max-w-6xl mx-auto flex items-center justify-between px-4">
@@ -63,7 +62,7 @@ export default function Home() {
               </Link>
               <Link
                 className="transition-all duration-300"
-                href={`https://www.linkedin.com/in/jason-wu-261741215/`}
+                href={links.linkedin}
               >
                 <Linkedin
                   size={45}
@@ -73,7 +72,7 @@ export default function Home() {
               </Link>
               <Link
                 className="transition-all duration-300"
-                href={`https://github.com/JDubWeuu`}
+                href={links.github}
               >
                 <Github
                   size={45}
@@ -108,8 +107,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Skills />
-      <Footer />
-    </div>
+    </>
   );
 }

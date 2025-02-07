@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
     // const pathname = usePathname();
-    const navElements: [string, string][] = [["About Me", "/about"], ["Learn", "/learn"], ["Projects", "/projects"], ["Experience", "/experience"], ["Contact", "/contact"]];
+    const navElements: [string, string][] = [["About", "/about"], ["Learn", "/learn"], ["Projects", "/projects"], ["Experience", "/experience"], ["Contact", "/contact"]];
   return (
     <nav className="w-full sticky top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-white/50 dark:bg-black/50 border-b border-slate-200/20 h-16">
       <div className="flex justify-between items-center w-full h-full max-w-6xl mx-auto px-4">
