@@ -50,7 +50,7 @@ const Contact = () => {
 
   useEffect(() => {
     console.log(form);
-  }, []);
+  }, [form]);
   return (
     <div className="flex justify-center items-center w-full min-h-screen">
       <Card className="w-[400px]">

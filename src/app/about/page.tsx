@@ -15,8 +15,8 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
         <div className="md:w-2/3 flex flex-col">
           <div className="text-lg space-y-6 leading-relaxed">
-            I'm Jason, a sophomore studying Computer Science and Engineering at
-            Santa Clara University. I'm extremely passionate about using my
+            I&apos;m Jason, a sophomore studying Computer Science and Engineering at
+            Santa Clara University. I&apos;m extremely passionate about using my
             skill in software to make a real-world impact on others.
           </div>
           <Link href="/assets/Jason_Wu_Resume.pdf" className="md:w-1/5 mt-2">
