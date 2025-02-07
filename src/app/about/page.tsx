@@ -20,7 +20,7 @@ const About = () => {
             skill in software to make a real-world impact on others.
           </div>
           <Link href="/assets/Jason_Wu_Resume.pdf" className="md:w-1/5 mt-2">
-            <Button>Resumé</Button>
+            <Button>Resum&eacute;</Button>
           </Link>
         </div>
 
