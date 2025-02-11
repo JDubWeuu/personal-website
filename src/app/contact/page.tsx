@@ -64,6 +64,7 @@ const Contact = () => {
     console.log(Object.keys(form?.formState.touchedFields));
     console.log(form?.formState?.errors);
   }, [form.formState]);
+  
   return (
     <div className="flex justify-center items-center w-full min-h-screen">
       <Card className="w-[420px]">
