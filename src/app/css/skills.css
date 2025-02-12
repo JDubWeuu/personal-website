@@ -1,8 +1,6 @@
 .skills {
-    display: flex;
+    padding: 2rem 0;
     gap: 2rem;
-    justify-content: center;
-    padding: 2rem;
 }
 
 .skill-card {
@@ -10,18 +8,38 @@
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    width: 300px;
-    transition: transform 0.2s ease-in-out;
+    min-width: 300px;
+    max-width: 500px;
+    /* width: 400px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.skill-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Add some hover effect to the skill cards */
 /* .skill-card:hover {
     transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } */
 
-.skill-card h3 {
-    color: #333;
-    margin-bottom: 1rem;
-    text-align: center;
-    font: 550 1rem var(--font-inter-sans);
-    color: darkslategrey;
+/* Make the layout responsive */
+@media (max-width: 1024px) {
+    .skills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-card {
+        width: 90%;
+        max-width: 500px;
+    }
 }

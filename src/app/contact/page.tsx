@@ -71,7 +71,7 @@ const Contact = () => {
         <CardHeader>
           <CardTitle className="font-bold text-4xl">Contact</CardTitle>
           <CardDescription>
-            For any inquires, you can contact me here
+            For any inquires, you can contact me here.
           </CardDescription>
         </CardHeader>
         <CardContent>
