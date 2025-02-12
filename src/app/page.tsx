@@ -23,7 +23,7 @@ export default function Home() {
     if (buttonClicked) {
       router.push("/about");
     }
-  }, [buttonClicked, router])
+  }, [buttonClicked, router]);
 
   return (
     <>
