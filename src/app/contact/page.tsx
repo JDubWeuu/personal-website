@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   FormField,
@@ -16,6 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -46,6 +47,8 @@ const Contact = () => {
     mode: "onChange",
   });
 
+  const [showAlert, setShowAlert] = useState<string>("");
+
   //   const onSubmit = (data: z.infer<typeof contactSchema>) => {
   //     console.log('Form submitted:', data);
   //   };
@@ -56,7 +59,25 @@ const Contact = () => {
 
   const onSubmit = async (values: z.infer<typeof contactSchema>) => {
     console.log(values);
-    // make a post request to api with values from form and send the email to my email
+    try {
+      const res = await fetch("http://127.0.0.1:8000/contact/send-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          content: values.message
+        })
+      });
+      if (!res.ok) {
+        throw Error("Unable to send contact form.");
+      }
+      const { message }: { message: string } = await res.json();
+      setShowAlert(message);
+    } catch (error) {
+      console.error(error as Error);
+    }
   };
 
   useEffect(() => {
@@ -64,7 +85,18 @@ const Contact = () => {
     console.log(Object.keys(form?.formState.touchedFields));
     console.log(form?.formState?.errors);
   }, [form.formState]);
-  
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert("");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+
+  }, [showAlert])
+
   return (
     <div className="flex justify-center items-center w-full min-h-screen">
       <Card className="w-[420px]">
@@ -75,6 +107,12 @@ const Contact = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {showAlert.length > 0 && (
+            <Alert className="mb-4" variant="success">
+              <AlertTitle>Success!</AlertTitle>
+              <AlertDescription>{showAlert}</AlertDescription>
+            </Alert>
+          )}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
