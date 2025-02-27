@@ -15,9 +15,13 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
         <div className="md:w-2/3 flex flex-col">
           <div className="text-lg space-y-6 leading-relaxed">
-            I&apos;m Jason, a sophomore studying Computer Science and Engineering at
-            Santa Clara University. I&apos;m extremely passionate about using my
-            skill in software to make a real-world impact on others.
+            Hi, I&apos;m Jason, a sophomore majoring in Computer Science and
+            Engineering at Santa Clara University, driven and passionate about
+            using my skills in software development and machine learning to
+            create innovative applications which make a meaningful impact on
+            society. I am eager to collaborate with like-minded individuals on
+            projects that promote camaraderie as we work together on developing
+            cutting-edge technologies.
           </div>
           <Link href="/assets/Jason_Wu_Resume.pdf" className="md:w-1/5 mt-2">
             <Button>Resum&eacute;</Button>
