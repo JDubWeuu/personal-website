@@ -24,7 +24,7 @@ const Learn = () => {
           </p>
         </div>
       </header>
-      <div className="flex justify-center">
+      <div className="flex justify-start items-start min-h-screen">
         <Suspense>
           <Searchbar />
         </Suspense>
