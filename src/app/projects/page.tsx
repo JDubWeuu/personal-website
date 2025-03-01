@@ -7,14 +7,14 @@ const Projects = () => {
       title: "Nezerac",
       description: "AI Agent for Business Owners.",
       logoLink: "/assets/nezerac.png",
-      redirectLink: "/projects/nezerac"
+      redirectLink: "/projects/nezerac",
     },
     {
-        title: "Visionairy",
-        description: "Automating Flight Booking for Visually Impaired.",
-        logoLink: "/assets/visionairy.png",
-        redirectLink: "/projects/visionairy"
-    }
+      title: "Visionairy",
+      description: "Automating Flight Booking for Visually Impaired.",
+      logoLink: "/assets/visionairy.png",
+      redirectLink: "/projects/visionairy",
+    },
   ];
 
   return (
@@ -27,7 +27,15 @@ const Projects = () => {
       </header>
       <section className="flex items-center p-8 space-x-6">
         {projectsInfo.map((project, i) => {
-            return <Project key={i} title={project.title} description={project.description} logoLink={project.logoLink} redirectLink={project.redirectLink} />
+          return (
+            <Project
+              key={i}
+              title={project.title}
+              description={project.description}
+              logoLink={project.logoLink}
+              redirectLink={project.redirectLink}
+            />
+          );
         })}
       </section>
     </div>
