@@ -12,7 +12,6 @@ export type Props = {
 const Project = ({ redirectLink, logoLink, title, description }: Props) => {
   return (
     <Link
-      className="group border bg-white max-w-sm border-gray-200 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300 w-[300px] h-[340px]"
       href={redirectLink}
     >
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl">

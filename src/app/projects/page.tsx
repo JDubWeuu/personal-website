@@ -1,7 +1,29 @@
+"use client"
 import React from "react";
 import Project, { Props as ProjectProps } from "./Project";
+import { motion } from 'framer-motion';
 
 const Projects = () => {
+  const containerVariants = {
+    hidden:{},
+    visible: {
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "ease-out"
+      },
+    },
+  };
   const projectsInfo: ProjectProps[] = [
     {
       title: "Nezerac",
@@ -25,18 +47,31 @@ const Projects = () => {
           Take a look at some of the projects I&#39;ve built!
         </span>
       </header>
-      <section className="flex items-center p-8 space-x-6">
-        {projectsInfo.map((project, i) => {
-          return (
-            <Project
-              key={i}
-              title={project.title}
-              description={project.description}
-              logoLink={project.logoLink}
-              redirectLink={project.redirectLink}
-            />
-          );
-        })}
+      <section>
+        <motion.ul
+          className="flex items-center p-8 space-x-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {projectsInfo.map((project, i) => {
+            return (
+              <motion.li
+                key={i}
+                variants={cardVariants}
+                className="group border bg-white max-w-sm border-gray-200 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300 w-[300px] h-[340px]"
+              >
+                <Project
+                  title={project.title}
+                  description={project.description}
+                  logoLink={project.logoLink}
+                  redirectLink={project.redirectLink}
+                />
+              </motion.li>
+            );
+          })}
+        </motion.ul>
       </section>
     </div>
   );

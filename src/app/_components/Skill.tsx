@@ -15,6 +15,7 @@ type Props = {
 }
 
 const Skill = (props: Props) => {
+  
   return (
     <TooltipProvider key={props.id}>
       <Tooltip>
