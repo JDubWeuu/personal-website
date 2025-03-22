@@ -2,7 +2,7 @@
 import React from 'react'
 import "../css/skills.css"
 import Skill from './Skill'
-import { delay, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 type Icons = {
     languages: string[],
@@ -19,6 +19,8 @@ const Skills = () => {
       },
     };
 
+    
+
     const containerVariants = {
       hidden: { opacity: 0 },
       visible: {
@@ -33,7 +35,7 @@ const Skills = () => {
 
     const cardVariants = {
       hidden: { opacity: 0 },
-      visible: { opacity: 1, transition: { duration: 0.5, ease: "ease-out" } },
+      visible: { opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
     };
     const iconList: Icons = {
       languages: [
