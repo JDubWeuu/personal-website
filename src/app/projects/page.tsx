@@ -20,7 +20,7 @@ const Projects = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "ease-out"
+        ease: "easeOut"
       },
     },
   };
@@ -36,7 +36,7 @@ const Projects = () => {
       description: "Automating Flight Booking for Visually Impaired.",
       logoLink: "/assets/visionairy.png",
       redirectLink: "/projects/visionairy",
-    },
+    }
   ];
 
   return (

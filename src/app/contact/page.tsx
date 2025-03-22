@@ -32,6 +32,7 @@ const contactSchema = z.object({
     .refine((val) => isNaN(Number(val)), {
       message: "Name must be a string, not a number",
     }),
+  email: z.string().email("Please input a valid email"),
   message: z
     .string()
     .nonempty("Message content must be included in contact form"),
@@ -43,6 +44,7 @@ const Contact = () => {
     defaultValues: {
       name: "",
       message: "",
+      email: ""
     },
     mode: "onChange",
   });
@@ -133,6 +135,32 @@ const Contact = () => {
                           <>
                             <FormMessage>
                               {form.formState.errors.name.message}
+                            </FormMessage>
+                          </>
+                        )}
+                      </FormItem>
+                    </>
+                  );
+                }}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => {
+                  return (
+                    <>
+                      <FormItem className="mb-6">
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Input your email address"
+                            {...field}
+                          />
+                        </FormControl>
+                        {form?.formState?.errors?.email && (
+                          <>
+                            <FormMessage>
+                              {form.formState.errors.email.message}
                             </FormMessage>
                           </>
                         )}
