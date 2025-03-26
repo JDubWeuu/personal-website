@@ -7,5 +7,9 @@ export type ProjectInformationType = {
         DevPost?: string,
         imageLink: string,
         videoLink?: string
+    },
+    imageSettings: {
+        width: number,
+        height: number
     }
 }

@@ -28,14 +28,14 @@ const Skills = () => {
         transition: {
           when: "beforeChildren", // Wait for this animation to finish before animating children
           staggerChildren: 0.5, // Delay each child's animation by 0.5s
-          duration: 2,
+          duration: 0.8,
         },
       },
     };
 
     const cardVariants = {
       hidden: { opacity: 0 },
-      visible: { opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
+      visible: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
     };
     const iconList: Icons = {
       languages: [
@@ -74,7 +74,7 @@ const Skills = () => {
       ],
     };
   return (
-    <section>
+    <section className="w-full">
       <motion.h2
         className="text-5xl font-semibold flex justify-center"
         variants={fadeVariants}
@@ -87,12 +87,10 @@ const Skills = () => {
         className="flex justify-center skills"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.div
-          className="skill-card"
-          variants={cardVariants}
-        >
+        <motion.div className="skill-card" variants={cardVariants}>
           <h3 className="">Languages</h3>
           <div className="flex flex-wrap justify-start gap-x-3.5 gap-y-3.5">
             {iconList.languages.map((languageLink, ind) => {
@@ -100,10 +98,7 @@ const Skills = () => {
             })}
           </div>
         </motion.div>
-        <motion.div
-          className="skill-card"
-          variants={cardVariants}
-        >
+        <motion.div className="skill-card" variants={cardVariants}>
           <h3 className="">Frameworks</h3>
           <div className="flex flex-wrap justify-start gap-x-3.5 gap-y-3.5">
             {iconList.frameworks.map((framework, ind) => {

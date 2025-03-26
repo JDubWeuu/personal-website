@@ -31,6 +31,10 @@ const ProjectInformation = async ({
         imageLink: "/assets/nezerac_demo.jpg",
         videoLink: "https://youtu.be/rAX1ihyIF5g",
       },
+      imageSettings: {
+        width: 400,
+        height: 400,
+      },
     },
     {
       name: "Visionairy",
@@ -51,22 +55,57 @@ const ProjectInformation = async ({
         imageLink: "/assets/visionairy_demo.jpg",
         videoLink: "https://youtu.be/ftuHUrt1KTg",
       },
+      imageSettings: {
+        width: 400,
+        height: 400,
+      },
+    },
+    {
+      name: "Personal Website",
+      content: "The current iteration of my personal website.",
+      techStack: [
+        "FastAPI",
+        "LangChain",
+        "Next.js",
+        "Framer Motion",
+        "PostgreSQL",
+        "Python",
+        "Groq",
+        "TypeScript",
+        "Redis",
+        "AWS"
+      ],
+      links: {
+        GitHub: "https://github.com/JDubWeuu/personal-website",
+        imageLink: "/assets/personal-website-img.png",
+      },
+      imageSettings: {
+        width: 300,
+        height: 100,
+      },
     },
   ];
+
   const paramValues = await params;
-  const projectName = paramValues.projectName;
-  const projectToRender = projectInformation.filter((project) => {
-    return project.name.toLowerCase() === projectName;
-  })[0];
-  if (!projectToRender) {
-    notFound();
+  let projectName = paramValues.projectName;
+  console.log(projectName);
+  if (projectName === "personal-website") {
+    projectName = "Personal Website";
   }
+  const projectToRender = projectInformation.filter((project) => {
+    return project.name.toLowerCase() === projectName.toLowerCase();
+  })[0];
+
+  if (!projectToRender) {
+    return notFound();
+  }
+
   return (
     <>
-      <div className="flex justify-center">
-        <main className="max-w-5xl w-full px-6 h-[500px]">
+      <div className="flex justify-center items-center">
+        <main className="max-w-5xl w-full px-6 h-[680px]">
           {/* Header on top left */}
-          <header className="mb-6">
+          <header className="my-6">
             <h2 className="font-bold text-3xl">{projectToRender.name}</h2>
           </header>
           {/* Image and Description Layout */}
@@ -80,8 +119,8 @@ const ProjectInformation = async ({
                   src={projectToRender.links?.imageLink as string}
                   alt={projectToRender.name}
                   className="h-auto shadow-lg"
-                  width={400}
-                  height={400}
+                  width={projectToRender.imageSettings.width}
+                  height={projectToRender.imageSettings.height}
                 />
                 <Used skills={projectToRender.techStack} />
               </div>

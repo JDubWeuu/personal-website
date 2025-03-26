@@ -81,7 +81,7 @@ const Experience = () => {
       ["bg-red-300", "ring-red-300"],
     ];
   return (
-    <div className="max-w-4xl mx-auto py-12">
+    <div className="max-w-4xl mx-auto py-12 h-dvh">
       <h1 className="text-4xl font-bold mb-10">Experience</h1>
       <div className="relative">
         <div className="absolute left-[31px] top-7 bottom-0 w-[2px] bg-slate-300" />

@@ -1,13 +1,44 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import profileImage from "../../../public/assets/cover_photo.jpeg";
+import secondImage from "../../../public/assets/photo_2.png";
+import thirdImage from "../../../public/assets/photo_3.png";
 import Skills from "../_components/Skills";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
 
 // type Props = {}
+
+const responsive = {
+  desktop: {
+    breakpoint: {
+      max: 3000,
+      min: 1024,
+    },
+    items: 1,
+    slidesToSlide: 1,
+  },
+  tablet: {
+    breakpoint: {
+      max: 1024,
+      min: 464,
+    },
+    items: 1,
+    slidesToSlide: 1,
+  },
+  mobile: {
+    breakpoint: {
+      max: 464,
+      min: 0,
+    },
+    items: 1,
+    slidesToShow: 1,
+  },
+};
 
 const About = () => {
   const fadeVariants = {
@@ -18,7 +49,7 @@ const About = () => {
     },
   };
   return (
-    <main className="max-w-4xl mx-auto p-6 space-y-12">
+    <main className="max-w-4xl mx-auto p-6 space-y-10">
       <motion.h1
         className="font-bold text-4xl"
         variants={fadeVariants}
@@ -31,7 +62,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
         <div className="md:w-2/3 flex flex-col">
           <motion.div
-            className="text-lg space-y-6 leading-relaxed"
+            className="text-lg leading-relaxed"
             variants={{
               ...fadeVariants,
               visible: {
@@ -55,7 +86,7 @@ const About = () => {
             projects that promote camaraderie as we work together on developing
             cutting-edge technologies.
           </motion.div>
-          <Link href="/assets/Jason_Wu_Resume.pdf" className="md:w-1/5 mt-2">
+          <Link href="/assets/Jason_Wu_Resume.pdf" className="md:w-1/5 mt-4">
             <motion.div
               variants={{
                 ...fadeVariants,
@@ -78,14 +109,14 @@ const About = () => {
         </div>
 
         <motion.div
-          className="md:w-1/3"
+          className="md:w-1/3 flex justify-center mb-14"
           variants={{
             ...fadeVariants,
             visible: {
               ...fadeVariants.visible,
               transition: {
                 ...fadeVariants.visible.transition,
-                delay: 3.3,
+                delay: 0.4,
                 duration: 1,
                 ease: "easeIn",
               },
@@ -94,18 +125,58 @@ const About = () => {
           initial="hidden"
           animate="visible"
         >
-          <Image
-            src={profileImage}
-            alt="Jason's profile photo"
-            width={300}
-            height={300}
-            className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-            placeholder="blur"
-          />
+          <Carousel
+            swipeable={true}
+            showDots={true}
+            responsive={responsive}
+            ssr={true}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            draggable={false}
+            keyBoardControl={true}
+            customTransition="transform 500ms ease-in-out"
+            transitionDuration={500}
+            containerClass="carousel-container w-full"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding"
+            arrows={false}
+          >
+            <div className="">
+              <Image
+                src={thirdImage}
+                alt="Jason's third photo"
+                width={300}
+                height={300}
+                className="rounded-lg transition-shadow duration-300"
+                placeholder="blur"
+              />
+            </div>
+            <div className="">
+              <Image
+                src={profileImage}
+                alt="Jason's profile photo"
+                width={300}
+                height={300}
+                className="rounded-lg transition-shadow duration-300"
+                placeholder="blur"
+              />
+            </div>
+            <div className="">
+              <Image
+                src={secondImage}
+                alt="Jason's second photo"
+                width={300}
+                height={300}
+                className="rounded-lg transition-shadow duration-300"
+                placeholder="blur"
+              />
+            </div>
+          </Carousel>
         </motion.div>
       </div>
 
-      <div className="pt-4">
+      <div className="pt-3">
         <Skills />
       </div>
     </main>

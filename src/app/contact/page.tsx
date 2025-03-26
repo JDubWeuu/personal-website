@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Form,
   FormField,
@@ -17,12 +17,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 // import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
+import ReCAPTCHA from "react-google-recaptcha";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const contactSchema = z.object({
@@ -36,30 +37,33 @@ const contactSchema = z.object({
   message: z
     .string()
     .nonempty("Message content must be included in contact form"),
+  captcha: z.string(),
 });
 
 const Contact = () => {
+  const captchaRef = useRef<ReCAPTCHA>(null);
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       message: "",
-      email: ""
+      email: "",
+      captcha: "",
     },
     mode: "onChange",
   });
 
   const [showAlert, setShowAlert] = useState<string>("");
 
-  //   const onSubmit = (data: z.infer<typeof contactSchema>) => {
-  //     console.log('Form submitted:', data);
-  //   };
-
-  //   const onError = (errors: any) => {
-  //     console.log('Form errors:', errors);
-  //   };
-
   const onSubmit = async (values: z.infer<typeof contactSchema>) => {
+    let captchaValue;
+    if (captchaRef.current) {
+      captchaValue = captchaRef.current.getValue();
+    }
+    if (!captchaValue) {
+      alert("Make sure to do the CAPTCHA before submitting the form!");
+      return;
+    }
     console.log(values);
     try {
       const res = await fetch("http://127.0.0.1:8000/contact/send-form", {
@@ -69,8 +73,10 @@ const Contact = () => {
         },
         body: JSON.stringify({
           name: values.name,
-          content: values.message
-        })
+          email: values.email,
+          content: values.message,
+          captchaCode: values.captcha,
+        }),
       });
       if (!res.ok) {
         throw Error("Unable to send contact form.");
@@ -83,7 +89,9 @@ const Contact = () => {
   };
 
   useEffect(() => {
+    console.log("passed");
     console.log(form);
+    console.log(form.getValues());
     console.log(Object.keys(form?.formState.touchedFields));
     console.log(form?.formState?.errors);
   }, [form.formState]);
@@ -96,8 +104,7 @@ const Contact = () => {
 
       return () => clearTimeout(timer);
     }
-
-  }, [showAlert])
+  }, [showAlert]);
 
   return (
     <div className="flex justify-center items-center w-full min-h-screen">
@@ -193,6 +200,29 @@ const Contact = () => {
                   );
                 }}
               />
+              <Controller
+                name="captcha"
+                control={form.control}
+                rules={{ required: "Please complete the CAPTCHA" }}
+                render={({ field }) => {
+                  return (
+                    <div className="mb-6">
+                      <ReCAPTCHA
+                        sitekey={
+                          process.env.NEXT_PUBLIC_GOOGLE_CAPTCHA_SITE_KEY || ""
+                        }
+                        ref={captchaRef}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                      />
+                      {form.formState.errors.captcha && (
+                        <p>{form.formState.errors.captcha.message}</p>
+                      )}
+                    </div>
+                  );
+                }}
+              />
+
               <Button type="submit">Send</Button>
             </form>
           </Form>
