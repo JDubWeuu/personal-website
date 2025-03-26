@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Searchbar from "../_components/Searchbar";
 import { Suspense } from "react";
-
 // type Props = {}
 
 type Message = {
@@ -28,6 +27,7 @@ const Learn = () => {
         <Suspense>
           <Searchbar />
         </Suspense>
+
         {/* <section className="border border-solid rounded-lg h-[500px] w-full ml-[100px] mr-[200px] shadow-md"></section> */}
       </div>
     </>
