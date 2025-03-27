@@ -9,7 +9,6 @@ import { Github, Mail, Linkedin } from "lucide-react";
 import { HoverBorderGradient } from "./_components/ui/hover-border-gradient";
 import { ArrowButton } from "./_components/ui/Arrow";
 import { links } from "@/config/site";
-import Head from "next/head";
 
 export default function Home() {
   const router = useRouter();

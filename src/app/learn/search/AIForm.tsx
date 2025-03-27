@@ -26,7 +26,6 @@ const AIForm = (props: Props) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -68,7 +67,7 @@ const AIForm = (props: Props) => {
   return (
     <>
       {successMessage.length > 0 && <SuccessMessage successMessage={successMessage} />}
-      <p className="mb-2">Please fill out this form below to contact Jason. </p>
+      <p className="mb-2">{props.aiMessage}</p>
       <form
         onSubmit={handleSubmit(sendForm)}
         className="flex flex-col space-y-2 mb-3"
