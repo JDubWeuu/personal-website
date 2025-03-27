@@ -26,7 +26,12 @@ const interSans = localFont({
 export const metadata: Metadata = {
   title: "Jason Wu",
   description: "Jason Wu's Portfolio",
+  icons: {
+    icon: "/assets/icon.png"
+  }
 };
+
+
 
 
 export default function RootLayout({

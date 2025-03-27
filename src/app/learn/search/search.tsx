@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "./fetch";
 import ErrorMessage from "@/app/_components/ErrorMessage";
+import AIForm from "./AIForm";
+import { Button } from "@/components/ui/button";
 
 const AIResponsePage = () => {
   const router = useRouter();
@@ -33,7 +35,7 @@ const AIResponsePage = () => {
 
   useEffect(() => {
     console.log(data);
-  }, [data])
+  }, [data]);
 
   useEffect(() => {
     if (!query) {
@@ -47,7 +49,7 @@ const AIResponsePage = () => {
   }, [searchParams, router, query]); //run when both router and searchParams mount/change
 
   return (
-    <div className="flex flex-col items-center w-full max-w-4xl mx-auto pt-8 px-4 h-[500px]">
+    <div className="flex flex-col items-center w-full max-w-4xl mx-auto pt-8 px-4 h-dvh">
       <div className="w-full">
         {/* Header with icon */}
         <div className="flex items-center space-x-3 mb-4 pb-2 border-b border-gray-200">
@@ -69,7 +71,7 @@ const AIResponsePage = () => {
         </div>
 
         <div
-          className={`bg-white rounded-lg p-4 shadow-sm border h-[200px] border-gray-100 ${
+          className={`bg-white rounded-lg p-4 shadow-sm border max-h-screen border-gray-100 ${
             error && "border-red-500 bg-red-200"
           }`}
         >
@@ -90,15 +92,34 @@ const AIResponsePage = () => {
             <>
               <ErrorMessage errorMessage={error.message} />
             </>
+          ) : data.contact === true ? (
+            <>
+              <AIForm aiMessage={data.data.response} />
+              <Button
+                onClick={() => router.back()}
+                className="mb-2 border-black bg-white text-black hover:bg-black hover:text-black hover:border-black"
+              >
+                Try Another Query
+              </Button>
+            </>
           ) : (
             <>
-              <div className="h-full w-full flex-col justify-between">
+              <div className="h-full flex flex-col justify-between">
                 <p className="text-black text-md font-medium">
                   {data.data.response}
                 </p>
-                <p className="text-slate-300 text-sm">
-                  Don&apos;t always trust AI Generated Content.
-                </p>
+
+                <div>
+                  <Button
+                    onClick={() => router.back()}
+                    className="mb-2 border-black bg-white text-black hover:bg-black hover:text-black hover:border-black"
+                  >
+                    Try Another Query
+                  </Button>
+                  <p className="text-slate-400 text-sm">
+                    Don&apos;t always trust AI Generated Content.
+                  </p>
+                </div>
               </div>
             </>
           )}
