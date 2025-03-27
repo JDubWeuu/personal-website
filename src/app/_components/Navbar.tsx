@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 // type Props = {
 
@@ -29,8 +30,15 @@ const Navbar = () => {
   return (
     <nav className="w-full sticky top-0 left-0 z-50 backdrop-filter backdrop-blur-lg bg-white/50 dark:bg-black/50 border-b border-slate-200/20 h-16">
       <div className="flex justify-between items-center w-full h-full max-w-6xl mx-auto px-4">
-        <Link href="/" className="text-xl font-bold" onClick={scrollToTop}>
-          JW
+        <Link href="/" className="text-xl font-bold flex items-center" onClick={scrollToTop}>
+          <Image 
+            src="/assets/jason_logo.png" 
+            alt="Jason logo" 
+            width={55} 
+            height={55}
+            className="transition-transform duration-300 hover:scale-105"
+            priority
+          />
         </Link>
         <ul className="flex items-center gap-x-12 font-medium">
           {navElements.map((s, i) => (
