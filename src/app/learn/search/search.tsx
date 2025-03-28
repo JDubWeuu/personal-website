@@ -71,7 +71,7 @@ const AIResponsePage = () => {
         </div>
 
         <div
-          className={`bg-white rounded-lg p-4 shadow-sm border max-h-screen border-gray-100 ${
+          className={`bg-white rounded-lg p-4 shadow-sm border h-[50vh] overflow-y-auto border-gray-100 ${
             error && "border-red-500 bg-red-200"
           }`}
         >
@@ -97,7 +97,7 @@ const AIResponsePage = () => {
               <AIForm aiMessage={data.data.response} />
               <Button
                 onClick={() => router.back()}
-                className="mb-2 border-black bg-white text-black hover:bg-black hover:text-black hover:border-black"
+                className="mb-2 border-black bg-white text-black hover:bg-black hover:text-white hover:border-black transition-colors"
               >
                 Try Another Query
               </Button>
@@ -112,13 +112,29 @@ const AIResponsePage = () => {
                 <div>
                   <Button
                     onClick={() => router.back()}
-                    className="mb-2 border-black bg-white text-black hover:bg-black hover:text-black hover:border-black"
+                    className="mb-2 border-black bg-white text-black hover:bg-black hover:text-white hover:border-black transition-colors"
                   >
                     Try Another Query
                   </Button>
-                  <p className="text-slate-400 text-sm">
-                    Don&apos;t always trust AI Generated Content.
-                  </p>
+                  <div className="flex items-center gap-2 mt-1 p-2 text-xs">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-amber-500"
+                    >
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                      <line x1="12" y1="9" x2="12" y2="13"></line>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <span className="font-medium">Don't always trust AI-generated content</span>
+                  </div>
                 </div>
               </div>
             </>

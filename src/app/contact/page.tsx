@@ -107,7 +107,7 @@ const Contact = () => {
   }, [showAlert]);
 
   return (
-    <div className="flex justify-center items-center w-full min-h-screen">
+    <div className="flex justify-center items-center w-full min-h-screen mb-6">
       <Card className="w-[420px]">
         <CardHeader>
           <CardTitle className="font-bold text-4xl">Contact</CardTitle>
