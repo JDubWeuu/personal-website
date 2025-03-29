@@ -16,23 +16,72 @@ import Footer from "./_components/Footer";
 //   weight: "100 900",
 // });
 
-
 const interSans = localFont({
   src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
   variable: "--font-inter-sans",
-  weight: "100 900"
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
-  title: "Jason Wu",
-  description: "Jason Wu's Portfolio",
+  metadataBase: new URL("https://jasonwu.dev"),
+  openGraph: {
+    siteName: "Jason Wu",
+    type: "website",
+    locale: "en_US",
+    title: "Jason Wu",
+    description: "Jason Wu's Portfolio",
+    images: [
+      {
+        url: "cover_photo.jpeg",
+        alt: "Jason Wu's website photo"
+      }
+    ]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    googleBot: "index, follow",
+  },
+  applicationName: "Jason Wu",
+  appleWebApp: {
+    title: "Jason Wu",
+    statusBarStyle: "default",
+    capable: true,
+  },
+  keywords: [
+    "jason",
+    "wu",
+    "jason wu",
+    "next.js",
+    "software development",
+    "santa clara university",
+    "scu",
+    "machine learning",
+    "data engineering",
+    "software engineering",
+    "react",
+    "langchain",
+    "visionairy",
+    "nezerac",
+    "postgresql",
+    "python",
+    "typescript",
+    "javascript",
+    "java",
+    "c",
+    "c++",
+    "sql",
+    "assembly",
+    "ai engineer",
+    "undergraduate",
+  ],
   icons: {
-    icon: "/assets/icon.png"
-  }
+    icon: "/assets/icon.png",
+  },
 };
-
-
-
 
 export default function RootLayout({
   children,
