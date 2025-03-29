@@ -66,18 +66,21 @@ const Contact = () => {
     }
     console.log(values);
     try {
-      const res = await fetch("http://3.95.159.41/contact/send-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          content: values.message,
-          captchaCode: values.captcha,
-        }),
-      });
+      const res = await fetch(
+        "https://2ppjz9mj3h.execute-api.us-east-1.amazonaws.com/contact/send-form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: values.name,
+            email: values.email,
+            content: values.message,
+            captchaCode: values.captcha,
+          }),
+        }
+      );
       if (!res.ok) {
         throw Error("Unable to send contact form.");
       }
