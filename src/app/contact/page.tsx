@@ -66,7 +66,7 @@ const Contact = () => {
     }
     console.log(values);
     try {
-      const res = await fetch("http://127.0.0.1:8000/contact/send-form", {
+      const res = await fetch("http://3.95.159.41/contact/send-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,6 +83,7 @@ const Contact = () => {
       }
       const { message }: { message: string } = await res.json();
       setShowAlert(message);
+      form.reset();
     } catch (error) {
       console.error(error as Error);
     }
