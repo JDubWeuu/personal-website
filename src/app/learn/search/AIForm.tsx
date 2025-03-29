@@ -36,17 +36,20 @@ const AIForm = (props: Props) => {
 
   const sendForm: SubmitHandler<FormSchema> = async (data: FormSchema) => {
     console.log(data);
-    const res = await fetch("http://3.95.159.41/ja-google/send-email", {
-      method: "POST",
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        content: data.message,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://2ppjz9mj3h.execute-api.us-east-1.amazonaws.com/ja-google/send-email",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          content: data.message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (!res.ok) {
       setTimeout(() => {
         router.push("/learn");
