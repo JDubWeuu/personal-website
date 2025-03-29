@@ -69,6 +69,7 @@ const ProjectInformation = async ({
         "Next.js",
         "Framer Motion",
         "PostgreSQL",
+        "Supabase",
         "Python",
         "Groq",
         "TypeScript",

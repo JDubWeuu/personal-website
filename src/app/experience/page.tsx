@@ -70,7 +70,7 @@ const Experience = () => {
           "computer vision and object detection algorithms for autonomous underwater vehicles.",
         largeDesc: "",
         imageLink: "/assets/avbotz_img.avif",
-        src: "https://www.youtube.com/watch?v=rhu36NEXQAI",
+        src: "http://www.youtube.com/watch?v=rhu36NEXQAI",
       },
     ];
 
