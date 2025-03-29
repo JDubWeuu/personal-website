@@ -133,7 +133,9 @@ const AIResponsePage = () => {
                       <line x1="12" y1="9" x2="12" y2="13"></line>
                       <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
-                    <span className="font-medium">Don't always trust AI-generated content</span>
+                    <span className="font-medium">
+                      Don&apos;t always trust AI-generated content
+                    </span>
                   </div>
                 </div>
               </div>
