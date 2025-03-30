@@ -74,6 +74,7 @@ const ProjectInformation = async ({
         "Groq",
         "TypeScript",
         "Redis",
+        "Docker",
         "AWS"
       ],
       links: {
