@@ -12,10 +12,7 @@ export const fetchData = async (question: string): Promise<DataResponse> => {
   const response = await fetch(
     `https://xwl3kbkucufa6m34gzn3nopmje0qhfao.lambda-url.us-east-1.on.aws/ja-google/query/?q=${question}`,
     {
-      method: "GET",
-      headers: {
-        "x-api-key": process.env.API_KEY || "",
-      },
+      method: "GET"
     }
   );
   if (!response.ok) {

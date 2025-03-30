@@ -40,11 +40,10 @@ const AIResponsePage = () => {
       router.push("/learn");
       return;
     }
-    if (query === question) {
-      return;
+    if (query !== question) {
+      setQuestion(query);
     }
-    setQuestion(query);
-  }, [searchParams, router, query, question]);
+  }, [query, router]);
 
   return (
     <div className="flex flex-col items-center w-full max-w-4xl mx-auto pt-8 px-4 h-dvh">
