@@ -10,7 +10,7 @@ export type DataResponse = {
 
 export const fetchData = async (question: string): Promise<DataResponse> => {
   const response = await fetch(
-    `https://ljaubtqyl2.execute-api.us-east-1.amazonaws.com/ja-google/query/?q=${question}`,
+    `https://xwl3kbkucufa6m34gzn3nopmje0qhfao.lambda-url.us-east-1.on.aws/ja-google/query/?q=${question}`,
     {
       method: "GET",
       headers: {

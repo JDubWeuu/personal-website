@@ -37,7 +37,7 @@ const AIForm = (props: Props) => {
   const sendForm: SubmitHandler<FormSchema> = async (data: FormSchema) => {
     console.log(data);
     const res = await fetch(
-      "https://ljaubtqyl2.execute-api.us-east-1.amazonaws.com/ja-google/send-email",
+      "https://xwl3kbkucufa6m34gzn3nopmje0qhfao.lambda-url.us-east-1.on.aws/ja-google/send-email",
       {
         method: "POST",
         body: JSON.stringify({
