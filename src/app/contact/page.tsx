@@ -67,12 +67,12 @@ const Contact = () => {
     console.log(values);
     try {
       const res = await fetch(
-        "https://ljaubtqyl2.execute-api.us-east-1.amazonaws.com/contact/send-form",
+        "https://xwl3kbkucufa6m34gzn3nopmje0qhfao.lambda-url.us-east-1.on.aws/contact/send-form",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-api-key": process.env.API_KEY || ""
+            "x-api-key": process.env.API_KEY || "",
           },
           body: JSON.stringify({
             name: values.name,
