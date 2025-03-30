@@ -101,9 +101,21 @@ const AIResponsePage = () => {
           ) : (
             <>
               <div className="h-full flex flex-col justify-between">
-                <p className="text-black text-md font-medium">
-                  {data.data.response}
-                </p>
+                <div className="flex flex-col space-y-3">
+                  {" "}
+                  <p className="text-black text-md font-medium">
+                    {data.data.response}
+                  </p>
+                  <div className="flex items-center space-x-2">
+                    <p className="font-normal text-slate-500">Click here to find out more: </p>
+                    <Button
+                      onClick={() => router.push(data.data.link)}
+                      className="w-[100px]"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </div>
 
                 <div>
                   <Button
@@ -112,6 +124,7 @@ const AIResponsePage = () => {
                   >
                     Try Another Query
                   </Button>
+
                   <div className="flex items-center gap-2 mt-1 p-2 text-xs">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
