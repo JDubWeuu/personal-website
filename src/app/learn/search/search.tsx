@@ -25,6 +25,8 @@ const AIResponsePage = () => {
       return fetchData(question);
     },
     enabled: !!question,
+    retry: 1,
+    retryDelay: 1000,
   });
 
   useEffect(() => {
@@ -32,10 +34,6 @@ const AIResponsePage = () => {
       console.error("Error fetching data", error);
     }
   }, [error]);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   useEffect(() => {
     if (!query) {
@@ -46,12 +44,11 @@ const AIResponsePage = () => {
       return;
     }
     setQuestion(query);
-  }, [searchParams, router, query]); //run when both router and searchParams mount/change
+  }, [searchParams, router, query, question]);
 
   return (
     <div className="flex flex-col items-center w-full max-w-4xl mx-auto pt-8 px-4 h-dvh">
       <div className="w-full">
-        {/* Header with icon */}
         <div className="flex items-center space-x-3 mb-4 pb-2 border-b border-gray-200">
           <Image
             src={"/assets/stars.png"}
