@@ -10,9 +10,12 @@ export type DataResponse = {
 
 export const fetchData = async (question: string): Promise<DataResponse> => {
   const response = await fetch(
-    `https://2ppjz9mj3h.execute-api.us-east-1.amazonaws.com/ja-google/query/?q=${question}`,
+    `https://ljaubtqyl2.execute-api.us-east-1.amazonaws.com/ja-google/query/?q=${question}`,
     {
       method: "GET",
+      headers: {
+        "x-api-key": process.env.API_KEY || "",
+      },
     }
   );
   if (!response.ok) {

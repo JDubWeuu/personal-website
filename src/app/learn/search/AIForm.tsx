@@ -37,7 +37,7 @@ const AIForm = (props: Props) => {
   const sendForm: SubmitHandler<FormSchema> = async (data: FormSchema) => {
     console.log(data);
     const res = await fetch(
-      "https://2ppjz9mj3h.execute-api.us-east-1.amazonaws.com/ja-google/send-email",
+      "https://ljaubtqyl2.execute-api.us-east-1.amazonaws.com/ja-google/send-email",
       {
         method: "POST",
         body: JSON.stringify({
@@ -47,6 +47,7 @@ const AIForm = (props: Props) => {
         }),
         headers: {
           "Content-Type": "application/json",
+          "x-api-key": process.env.API_KEY || "",
         },
       }
     );
