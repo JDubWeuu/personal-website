@@ -109,7 +109,7 @@ const AIResponsePage = () => {
                   <div className="flex items-center space-x-2">
                     <p className="font-normal text-slate-500">Click here to find out more: </p>
                     <Button
-                      onClick={() => router.push(data.data.link)}
+                      onClick={() => router.push(data.data.link.split("localhost:3000")[1])}
                       className="w-[100px]"
                     >
                       Learn More
