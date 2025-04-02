@@ -46,17 +46,17 @@ const Projects = () => {
   ];
 
   return (
-    <div className="mt-6 h-dvh flex flex-col items-center">
-      <div>
+    <div className="mt-6 min-h-dvh flex flex-col items-center">
+      <div className="w-full">
         <header className="ml-8">
           <h1 className="font-bold text-3xl mb-2">Projects</h1>
           <span className="w-full text-slate-600">
             Take a look at some of the projects I&#39;ve built!
           </span>
         </header>
-        <section className="">
+        <section>
           <motion.ul
-            className="flex items-center p-8 space-x-6"
+            className="flex sm:justify-center justify-start p-8 gap-6 flex-wrap flex-col md:flex-row items-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -67,7 +67,7 @@ const Projects = () => {
                 <motion.li
                   key={i}
                   variants={cardVariants}
-                  className="group border bg-white max-w-sm border-gray-200 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300 w-[300px] h-[340px]"
+                  className="group border bg-white max-w-sm border-gray-200 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300 w-[300px] h-[340px] sm:flex-shrink"
                 >
                   <Project
                     title={project.title}

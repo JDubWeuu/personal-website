@@ -36,12 +36,12 @@ const Searchbar = () => {
   })
 
   return (
-    <div className="w-[800px] flex justify-start items-start mx-[100px] relative">
+    <div className="sm:w-[400px] md:w-[800px] flex justify-start items-start md:mx-[100px] mx-[20px] relative">
       <Input
         type="text"
         ref={searchRef}
         placeholder="Type what you want to know about me... ⌘K"
-        className="w-full font-medium border-slate-200 border-2 rounded-xl focus:ring-offset-2 focus:ring-2 focus:ring-blue-400 transition-colors pr-10"
+        className="w-full font-medium border-slate-200 border-2 rounded-xl focus:ring-offset-2 focus:ring-2 focus:ring-blue-400 transition-colors pr-10 text-sm md:text-base"
         onKeyDown={(event) => event.key === "Enter" && onSubmit(event)}
         onChange={(event) => setUserInput(event.target.value)}
       />
