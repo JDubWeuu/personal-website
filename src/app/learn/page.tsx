@@ -14,10 +14,10 @@ const Learn = () => {
   const [] = useState<Message[]>([]);
   return (
     <>
-      <header className="my-3 ml-[100px] w-full flex flex-col">
+      <header className="my-3 mx-4 md:ml-[100px] w-full flex flex-col">
         <h1 className="font-bold text-3xl">Meet Ja-Google!</h1>
         <div className="text-slate-600 mt-2">
-          <p>
+          <p className="text-sm md:text-base">
             You can query this LLM to learn more about me! Ask about hobbies,
             goals, aspirations, or anything else!
           </p>
