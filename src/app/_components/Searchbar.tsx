@@ -36,21 +36,23 @@ const Searchbar = () => {
   })
 
   return (
-    <div className="w-full max-w-[800px] flex justify-start items-start mx-auto px-[20px] sm:px-[20px] md:px-[100px] relative">
-      <Input
-        type="text"
-        ref={searchRef}
-        placeholder="Type what you want to know about me... ⌘K"
-        className="w-full font-medium border-slate-200 border-2 rounded-xl focus:ring-offset-2 focus:ring-2 focus:ring-blue-400 transition-colors sm:pr-10 text-sm md:text-base"
-        onKeyDown={(event) => event.key === "Enter" && onSubmit(event)}
-        onChange={(event) => setUserInput(event.target.value)}
-      />
-      <button
-        className="absolute right-[2px] px-1.5 h-[calc(100%-4px)] hover:bg-slate-300 transition-colors rounded-tr-xl rounded-br-xl bg-white my-auto top-1/2 -translate-y-1/2"
-        onClick={onSubmit}
-      >
-        <Search className="h-4 w-4" />
-      </button>
+    <div className="w-full max-w-[800px] flex items-center mx-auto px-[20px] sm:px-[20px] md:px-[100px] relative">
+      <div className="relative w-full">
+        <Input
+          type="text"
+          ref={searchRef}
+          placeholder="Type what you want to know about me... ⌘K"
+          className="w-full font-medium border-slate-200 border-2 rounded-xl focus:ring-offset-2 focus:ring-2 focus:ring-blue-400 transition-colors pr-10 text-sm md:text-base"
+          onKeyDown={(event) => event.key === "Enter" && onSubmit(event)}
+          onChange={(event) => setUserInput(event.target.value)}
+        />
+        <button
+          className="absolute right-0.5 rounded-r-lg top-1/2 transform -translate-y-1/2 h-8 w-6 hover:bg-slate-200 transition-colors bg-white flex items-center justify-center"
+          onClick={onSubmit}
+        >
+          <Search className="h-4 w-4" />
+        </button>
+      </div>
     </div>
   );
 };
