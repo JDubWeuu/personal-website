@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "./_components/Footer";
+import Script from "next/script";
 // import RouteListener from "@/utils/route-change";
 
 // const geistSans = localFont({
@@ -33,9 +34,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "cover_photo.jpeg",
-        alt: "Jason Wu's website photo"
-      }
-    ]
+        alt: "Jason Wu's website photo",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -90,6 +91,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="32edbeb1-6b22-4d2c-b417-88f2a17014fa"
+        ></Script>
+      </head>
       <body className={`${interSans.variable} antialiased min-h-screen`}>
         <Navbar />
         {children}
